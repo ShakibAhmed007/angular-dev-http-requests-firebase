@@ -5,3 +5,6 @@
 <hr>
 <button (click)="getReq()"> Get Request </button>
 <p> Response Data: {{resData | json}} </p>
+
+
+<p *ngIf="error" style="text-color: red"> {{error}} </p>

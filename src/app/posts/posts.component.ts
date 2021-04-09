@@ -12,6 +12,7 @@ import { PostsService } from "./service/posts.service";
 export class PostsComponent implements OnInit {
   reqData: any;
   resData: any;
+  error: any;
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
@@ -27,6 +28,7 @@ export class PostsComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.error = error.message;
       }
     );
   }
@@ -38,6 +40,7 @@ export class PostsComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.error = error.message;
       }
     );
   }
