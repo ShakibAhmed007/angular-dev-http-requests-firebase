@@ -54,5 +54,6 @@ firebase rules
     ".write": "now < 1620496800000",  // 2021-5-9
   }
 }
+https://console.firebase.google.com/project/ng-dev-firebase/database/ng-dev-firebase-default-rtdb/data
 
 */
