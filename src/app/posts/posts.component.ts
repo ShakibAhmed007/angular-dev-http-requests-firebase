@@ -18,16 +18,11 @@ export class PostsComponent implements OnInit {
   ngOnInit() {}
 
   sendPostReq() {
-    const postsModel = new PostsModel();
-    postsModel.title = "Dummy Post";
-    postsModel.desc = "Dummy Post for Test Desc";
-    this.reqData = postsModel;
-    this.postsService.createPosts(postsModel).subscribe(
+    this.postsService.createPosts(this.getPostModel()).subscribe(
       response => {
         console.log(response);
       },
       error => {
-        console.log(error);
         this.error = error.message;
       }
     );
@@ -39,10 +34,17 @@ export class PostsComponent implements OnInit {
         this.resData = response;
       },
       error => {
-        console.log(error);
         this.error = error.message;
       }
     );
+  }
+
+  getPostModel() {
+    const postsModel = new PostsModel();
+    postsModel.title = "Dummy Post";
+    postsModel.desc = "Dummy Post for Test Desc";
+    this.reqData = postsModel;
+    return postsModel;
   }
 }
 
