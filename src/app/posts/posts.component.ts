@@ -21,14 +21,35 @@ export class PostsComponent implements OnInit {
     postsModel.title = "Dummy Post";
     postsModel.desc = "Dummy Post for Test Desc";
     this.reqData = postsModel;
-    this.postsService.createPosts(postsModel).subscribe(response => {
-      console.log(response);
-    });
+    this.postsService.createPosts(postsModel).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   getReq() {
-    this.postsService.getPosts().subscribe(response => {
-      this.resData = response;
-    });
+    this.postsService.getPosts().subscribe(
+      response => {
+        this.resData = response;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
+
+/* 
+firebase rules
+{
+  "rules": {
+    ".read": "now < 1620496800000",  // 2021-5-9
+    ".write": "now < 1620496800000",  // 2021-5-9
+  }
+}
+
+*/
