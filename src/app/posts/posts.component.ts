@@ -12,7 +12,7 @@ import { PostsService } from "./service/posts.service";
 export class PostsComponent implements OnInit {
   reqData: any;
   resData: any;
-  error: any;
+  error: null;
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
