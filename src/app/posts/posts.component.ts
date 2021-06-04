@@ -41,6 +41,17 @@ export class PostsComponent implements OnInit {
     );
   }
 
+  deleteRes() {
+    this.postsService.deletePosts().subscribe(
+      response => {
+        this.resData = response;
+      },
+      error => {
+        this.error = error.message;
+      }
+    );
+  }
+
   getPostModel() {
     const postsModel = new PostsModel();
     postsModel.title = 'Dummy Post';
