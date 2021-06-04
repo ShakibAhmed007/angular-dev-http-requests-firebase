@@ -9,7 +9,7 @@ export class PostsService {
   constructor(private httpClient: HttpClient) {}
 
   createPosts(postsModel: PostsModel) {
-    // Adding query Params
+    // Adding query Params into requests
     let params = new HttpParams();
     params = params.append('dataType', 'Test');
     params = params.append('roleType', 'ADMIN');
@@ -57,5 +57,14 @@ export class PostsService {
           return dataArr;
         })
       );
+  }
+
+  deletePosts() {
+    return this.httpClient.delete(
+      'https://ng-dev-firebase-default-rtdb.firebaseio.com/posts.json',
+      {
+        observe: 'body'
+      }
+    );
   }
 }
