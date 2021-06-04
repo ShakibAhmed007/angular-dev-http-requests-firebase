@@ -24,7 +24,10 @@ export class PostsService {
         }),
 
         // query params
-        params: params
+        params: params,
+
+        // observe response
+        observe: 'response'
       }
     );
   }
