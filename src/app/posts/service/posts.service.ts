@@ -49,7 +49,10 @@ export class PostsService {
         }),
 
         // query params
-        params: params
+        params: params,
+
+        // response type
+        responseType: 'json'
       })
       .pipe(
         map(response => {
