@@ -27,7 +27,7 @@ export class PostsService {
         params: params,
 
         // observe response
-        observe: 'response'
+        observe: 'response' // response will give all content
       }
     );
   }
