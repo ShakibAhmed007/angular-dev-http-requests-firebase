@@ -41,7 +41,7 @@ export class PostsComponent implements OnInit {
     );
   }
 
-  deleteRes() {
+  deleteReq() {
     this.postsService.deletePosts().subscribe(
       response => {
         this.resData = response;
