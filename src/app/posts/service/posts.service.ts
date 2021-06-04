@@ -26,8 +26,11 @@ export class PostsService {
         // query params
         params: params,
 
-        // observe response
-        observe: 'response' // response will give all content , *** ('body','events') can also be used.
+        // observe response (response will give all content , *** ('body','events') can also be used.
+        observe: 'response',
+
+        // response type
+        responseType: 'json'
       }
     );
   }
