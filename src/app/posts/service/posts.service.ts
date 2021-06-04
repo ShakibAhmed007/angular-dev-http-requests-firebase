@@ -1,23 +1,28 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { PostsModel } from "../model/posts-model";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { PostsModel } from '../model/posts-model';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class PostsService {
   constructor(private httpClient: HttpClient) {}
 
   createPosts(postsModel: PostsModel) {
     return this.httpClient.post(
-      "https://ng-dev-firebase-default-rtdb.firebaseio.com/posts.json",
+      'https://ng-dev-firebase-default-rtdb.firebaseio.com/posts.json',
       postsModel
     );
   }
 
   getPosts() {
     return this.httpClient
-      .get("https://ng-dev-firebase-default-rtdb.firebaseio.com/posts.json")
+      .get('https://ng-dev-firebase-default-rtdb.firebaseio.com/posts.json', {
+        // Add request header
+        headers: new HttpHeaders({
+          'Custom-Header': 'Test'
+        })
+      })
       .pipe(
         map(response => {
           const dataArr = [];
