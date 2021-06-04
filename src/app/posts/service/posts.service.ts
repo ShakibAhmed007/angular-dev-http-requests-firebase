@@ -9,9 +9,23 @@ export class PostsService {
   constructor(private httpClient: HttpClient) {}
 
   createPosts(postsModel: PostsModel) {
+    // Adding query Params
+    let params = new HttpParams();
+    params = params.append('dataType', 'Test');
+    params = params.append('roleType', 'ADMIN');
+
     return this.httpClient.post(
       'https://ng-dev-firebase-default-rtdb.firebaseio.com/posts.json',
-      postsModel
+      postsModel,
+      {
+        // Add request header
+        headers: new HttpHeaders({
+          'Custom-Header': 'Test'
+        }),
+
+        // query params
+        params: params
+      }
     );
   }
 
