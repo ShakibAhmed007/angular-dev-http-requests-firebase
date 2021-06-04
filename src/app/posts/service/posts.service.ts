@@ -27,6 +27,8 @@ export class PostsService {
         headers: new HttpHeaders({
           'Custom-Header': 'Test'
         }),
+
+        // query params
         params: params
       })
       .pipe(
