@@ -1,13 +1,13 @@
-import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { map } from "rxjs/operators";
-import { PostsModel } from "./model/posts-model";
-import { PostsService } from "./service/posts.service";
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { PostsModel } from './model/posts-model';
+import { PostsService } from './service/posts.service';
 
 @Component({
-  selector: "app-posts",
-  templateUrl: "./posts.component.html",
-  styleUrls: ["./posts.component.css"]
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
   reqData: any;
@@ -15,10 +15,12 @@ export class PostsComponent implements OnInit {
   error: null;
   constructor(private postsService: PostsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.reqData = this.getPostModel();
+  }
 
   sendPostReq() {
-    this.postsService.createPosts(this.getPostModel()).subscribe(
+    this.postsService.createPosts(this.reqData).subscribe(
       response => {
         console.log(response);
       },
@@ -41,8 +43,8 @@ export class PostsComponent implements OnInit {
 
   getPostModel() {
     const postsModel = new PostsModel();
-    postsModel.title = "Dummy Post";
-    postsModel.desc = "Dummy Post for Test Desc";
+    postsModel.title = 'Dummy Post';
+    postsModel.desc = 'Dummy Post for Test Desc';
     this.reqData = postsModel;
     return postsModel;
   }

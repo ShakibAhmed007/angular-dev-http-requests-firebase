@@ -1,6 +1,6 @@
-<button (click)="sendPostReq()"> Send Posts Request </button>
-
-<p *ngIf="!error"> Request Data : {{reqData | json}} </p>
+<p> Request Data : {{reqData | json}} </p>
+<button (click)="sendPostReq()"> Send Posts Request with this JSON</button>
+<p *ngIf="!error">Successfully sent req to firebase server</p>
 <hr>
 <hr>
 <button (click)="getReq()"> Get Request </button>
