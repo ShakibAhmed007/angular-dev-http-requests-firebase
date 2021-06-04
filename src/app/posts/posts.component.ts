@@ -12,7 +12,7 @@ import { PostsService } from './service/posts.service';
 export class PostsComponent implements OnInit {
   reqData: any;
   resData: any;
-  error: null;
+  error = false;
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class PostsComponent implements OnInit {
         console.log(response);
       },
       error => {
-        this.error = error.message;
+        this.error = true;
       }
     );
   }
@@ -36,7 +36,7 @@ export class PostsComponent implements OnInit {
         this.resData = response;
       },
       error => {
-        this.error = error.message;
+        this.error = true;
       }
     );
   }
