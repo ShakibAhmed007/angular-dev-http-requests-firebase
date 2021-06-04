@@ -1,9 +1,11 @@
 <p> Request Data : {{reqData | json}} </p>
-<button (click)="sendPostReq()"> Send Posts Request with this JSON</button>
+<button (click)="sendPostReq()"> Save Posts (With this JSON)</button>
 <hr>
 <hr>
-<button (click)="getReq()"> Get Request </button>
+<button (click)="getReq()"> Get Posts </button>
 <p> Response Data: {{resData | json}} </p>
-
+<hr>
+<hr>
+<button (click)="deleteReq()"> Delete Posts</button>
 
 <p *ngIf="error"> {{error}} </p>
