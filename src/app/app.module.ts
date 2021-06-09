@@ -6,6 +6,7 @@ import { HelloComponent } from './hello.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PostsComponent } from './posts/posts.component';
 import { AuthInceptorService } from './auth-interceptor.service';
+import { LoggingInceptorService } from './logging-interceptor.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
@@ -14,6 +15,11 @@ import { AuthInceptorService } from './auth-interceptor.service';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInceptorService,
       multi: true
     }
   ],
